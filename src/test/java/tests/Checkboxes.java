@@ -9,19 +9,17 @@ import org.testng.annotations.Test;
 public class Checkboxes {
 
     @Test
-    public void Checkboxes(){
+    public void checkCheckBoxes(){
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
         WebDriver driver = new ChromeDriver();
         driver.get("http://the-internet.herokuapp.com/checkboxes");
-        WebElement firstBox = driver.findElement(By.cssSelector("[type=checkbox]"));
-        String firstunchecked = firstBox.getCssValue("checked");
+        WebElement firstCheckBox = driver.findElement(By.cssSelector("[type=checkbox]"));
+        String firstUnchecked = firstCheckBox.getCssValue("checked");
         driver.findElement(By.cssSelector("[type=checkbox]")).click();
-        String firstchecked = firstBox.getCssValue("checked");
-
-        WebElement secondBox = driver.findElement(By.xpath("//*[@type='checkbox'][2]"));
-        String secondchecked = secondBox.getCssValue("defaultChecked");
-        secondBox.click();
-        String secondunchecked = secondBox.getCssValue("checked");
-
+        String firstChecked = firstCheckBox.getCssValue("checked");
+        WebElement secondCheckBox = driver.findElement(By.xpath("//*[@type='checkbox'][2]"));
+        String secondchecked = secondCheckBox.getCssValue("defaultChecked");
+        secondCheckBox.click();
+        String secondunchecked = secondCheckBox.getCssValue("checked");
     }
 }
