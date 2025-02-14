@@ -5,6 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import java.time.Duration;
 
@@ -21,7 +22,7 @@ public class ContextMenu {
         actions.contextClick(frame).perform();
         wait.until((ExpectedConditions.alertIsPresent())).getText();
         Alert alert = driver.switchTo().alert();
+        System.out.println(alert.getText());
         alert.accept();
     }
-
 }

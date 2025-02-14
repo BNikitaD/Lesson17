@@ -10,16 +10,18 @@ import org.testng.annotations.Test;
 
 public class FileUpload {
 
+    public static final String nameExpectedFile = "Снимок экрана 2025-02-12 в 21.24.59.png";
+    public static final String PATH_TO_THE_FILE = "/Users/nikitabulavko/Desktop/" + nameExpectedFile;
+
     @Test
     public void fileUpload() {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
         WebDriver driver = new ChromeDriver();
         driver.get("http://the-internet.herokuapp.com/upload");
         WebElement chooseFileButton = driver.findElement(By.id("file-upload"));
-        chooseFileButton.sendKeys("/Users/nikitabulavko/Desktop/Снимок экрана 2025-02-12 в 21.24.59.png");
+        chooseFileButton.sendKeys(PATH_TO_THE_FILE);
         driver.findElement(By.cssSelector("[id=file-submit]")).click();
-        String nameExpectedFile = "Снимок экрана 2025-02-12 в 21.24.59.png";
-        String uploadedFile = driver.findElement(By.xpath("//*[@id='uploaded-files']")).getText();
+        String uploadedFile = driver.findElement(By.id("uploaded-files")).getText();
         Assert.assertEquals(uploadedFile, nameExpectedFile);
     }
 }

@@ -20,9 +20,10 @@ public class DynamicControls {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(removeButton)).getText();
         boolean isCheckboxInvisible = wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@type='checkbox']")));
-        WebElement input = driver.findElement(By.xpath("//input[@type='text' and @disabled='']"));
+        WebElement input = driver.findElement(By.xpath("//input"));
         input.isEnabled();
-        driver.findElement(By.xpath("//*[@onclick=\"swapInput()\"]")).click();
+        WebElement buttonEnable = driver.findElement(By.xpath("//*[@onclick=\"swapInput()\"]"));
+        buttonEnable.click();
         WebDriverWait inputAvailable = new WebDriverWait(driver, Duration.ofSeconds(20));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='message']")));
         input.isEnabled();
