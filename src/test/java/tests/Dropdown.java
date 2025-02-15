@@ -11,7 +11,7 @@ import java.util.List;
 public class Dropdown {
 
     @Test
-    public void Dropdown(){
+    public void dropdown(){
 
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
         WebDriver driver = new ChromeDriver();
@@ -19,14 +19,11 @@ public class Dropdown {
         WebElement selector = driver.findElement(By.id("dropdown"));
         selector.isSelected();
         selector.click();
-
-        WebElement value1 = driver.findElement(By.xpath("//*[@value=1]"));
-        value1.click();
-        value1.isDisplayed();
-
-        WebElement value2 = driver.findElement(By.xpath("//*[@value=2]"));
-        value2.click();
-        value2.isDisplayed();
-
+        WebElement option1 = driver.findElement(By.xpath("//*[@value=1]"));
+        option1.click();
+        option1.isDisplayed();
+        WebElement option2 = driver.findElement(By.xpath("//*[@value=2]"));
+        option2.click();
+        option2.isDisplayed();
     }
 }
