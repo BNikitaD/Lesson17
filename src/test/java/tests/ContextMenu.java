@@ -22,7 +22,9 @@ public class ContextMenu {
         actions.contextClick(frame).perform();
         wait.until((ExpectedConditions.alertIsPresent())).getText();
         Alert alert = driver.switchTo().alert();
-        System.out.println(alert.getText());
+        alert.getText();
         alert.accept();
+        String alertText = "You selected a context menu";
+        Assert.assertEquals(alert.getText(), alertText);
     }
 }

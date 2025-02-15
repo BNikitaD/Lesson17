@@ -21,7 +21,7 @@ public class NotificationMessages {
         WebElement link = driver.findElement(By.linkText("Click here"));
         link.click();
         String expectedResult = "Action successful";
-        String actualResult = driver.findElement(By.xpath("//*[@id=\"flash\"]")).getText();
+        String actualResult = driver.findElement(By.id("flash")).getText();
         Assert.assertEquals(expectedResult, actualResult);
     }
 }
